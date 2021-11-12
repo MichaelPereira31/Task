@@ -1,0 +1,123 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"Task Documentation",
+        "description":"This is an API Task",
+        "version":"1.0.0",
+        "contact":{
+            "email":"michaelpereira408@gmail.com"
+        }
+        },
+        "paths":{
+            "/task":{
+                "get":{
+                    "tags":["Tasks"],
+                    "summary":"List tasks",
+                    "description":"List tasks",
+                    "responses":{
+                        "200":{
+                            "description":"Success",
+                            "content":{
+                                "application/json":{
+                                    "type":"array",
+                                    "items":{
+                                        "name":{
+                                            "type": "string"
+                                        },
+                                        "description":{
+                                            "type": "string"
+                                        },
+                                        "task_day":{
+                                            "type":"string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "post":{
+                    "tags":["Tasks"],
+                    "summary":"Create a task",
+                    "description":"Create a new task",
+                    "requestBody":{
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties":{
+                                        "name":{
+                                            "type": "string"
+                                        },
+                                        "description":{
+                                            "type": "string"
+                                        },
+                                        "task_day":{
+                                            "type":"string"
+                                        }
+                                    },
+                                    "example":{
+                                        "name":"New exemplo task",
+                                        "description":"New exemplo description test",
+                                        "task_day":"2021-10-21"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses":{
+                        "201":{
+                            "description":"Created"
+                        }
+                    }
+                },
+                
+                "put":{
+                    "tags":["Tasks"],
+                    "summary":"Updated task",
+                    "description":"Updated task",
+                    "requestBody":{
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties":{
+                                        "id":{
+                                            "type": "string"
+                                        },
+                                        "name":{
+                                            "type": "string"
+                                        },
+                                        "description":{
+                                            "type": "string"
+                                        },
+                                        "task_day":{
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "id":"9cbc4698-6c2f-4e58-ac2d-1e76448a5bf0",
+                                        "name":"Updated exemplo task",
+                                        "description":"Updated exemplo description test",
+                                        "task_day":"2021-10-21"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses":{
+                        "204":{
+                            "description":"Success"
+                        },
+                        "404":{
+                            "description":"Error"
+                        }
+
+                    }
+                }
+                
+            }
+        }
+    
+}

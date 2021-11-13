@@ -12,28 +12,9 @@ taskRouter.get('/',taskController.index);
 
 taskRouter.get('/:id',taskController.show);
 
-taskRouter.post('/',
-/*celebrate({
-    [Segments.BODY]:{
-        id:Joi.string().uuid().required(),
-        name: Joi.string().required(),
-        description: Joi.string().required(),
-        task_day: Joi.required()
+taskRouter.post('/',taskController.create);
 
-    }
-}),*/taskController.create);
-
-taskRouter.put('/:id',
-/*celebrate({
-    [Segments.PARAMS]:{
-        id:Joi.string().uuid().required()
-    },
-    [Segments.BODY]:{
-        name: Joi.string().required(),
-        description: Joi.string().required(),
-        task_day: Joi.date().required()
-    }
-}),*/taskController.update);
+taskRouter.put('/:id',taskController.update);
 
 taskRouter.delete('/:id',taskController.delete);
 
